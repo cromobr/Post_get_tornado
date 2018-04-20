@@ -13,9 +13,11 @@ class FileHandler(tornado.web.RequestHandler):
         if body == "":
             self.set_status(400)
             self.finish("Sem valores no post da mensagem")
+            return
         file_save = open(filename + ".txt", "w")
         file_save.write(body)
         file_save.close()
+        self.finish("Arquivo criado com suscesso")
 
     def get(self, filename):
         try:
