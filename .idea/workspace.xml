@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42181876-f10a-4b59-a5d5-f9d38a487392" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Robot/features/api.robot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Robot/keywords/keyword_api.robot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Robot/features/api-refactor.robot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Robot/keywords/keyword-api-refactor.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Robot/results/log.html" beforeDir="false" afterPath="$PROJECT_DIR$/Robot/results/log.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Robot/results/output.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Robot/results/output.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Robot/results/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/Robot/results/report.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,37 +18,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.py">
+      <file leaf-file-name="api-refactor.robot" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Robot/features/api-refactor.robot">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+            <state relative-caret-position="385">
+              <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="86" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#0#108#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="keyword_api.robot" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Robot/keywords/keyword_api.robot">
+      <file leaf-file-name="keyword-api-refactor.robot" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Robot/keywords/keyword-api-refactor.robot">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="75">
+              <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
               <folding>
                 <element signature="e#0#432#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.robot" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Robot/features/api.robot">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="25" column="39" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#103#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,6 +58,9 @@
         <option value="$PROJECT_DIR$/Robot/features/api.robot" />
         <option value="$PROJECT_DIR$/index.py" />
         <option value="$PROJECT_DIR$/Robot/keywords/keyword_api.robot" />
+        <option value="$PROJECT_DIR$/listaContato.txt" />
+        <option value="$PROJECT_DIR$/Robot/features/api-refactor.robot" />
+        <option value="$PROJECT_DIR$/Robot/keywords/keyword-api-refactor.robot" />
       </list>
     </option>
   </component>
@@ -119,6 +112,12 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/index.py" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Robot/keywords" />
+      <recent name="$PROJECT_DIR$/Robot/features" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -257,8 +256,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Robot/features/api.robot">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" column="39" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="39" />
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
           <folding>
             <element signature="e#0#103#0" expanded="true" />
           </folding>
@@ -267,8 +266,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Robot/keywords/keyword_api.robot">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+        <state>
+          <caret lean-forward="true" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#432#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/listaContato.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robot/features/api-refactor.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="86" />
+          <folding>
+            <element signature="e#0#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robot/keywords/keyword-api-refactor.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
           <folding>
             <element signature="e#0#432#0" expanded="true" />
           </folding>

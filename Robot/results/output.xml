@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20180420 14:19:27.308" generator="Robot 3.0.3 (Python 2.7.12 on linux2)">
-<suite source="/home/CIT/bcromo/github/Post_get_tornado/Robot/features" id="s1" name="Features">
-<suite source="/home/CIT/bcromo/github/Post_get_tornado/Robot/features/api.robot" id="s1-s1" name="Api">
-<test id="s1-s1-t1" name="1. Cenario: Enviar nome do arquivo (ListaContato) e texto (Bruno 19 9999-9999) para API (POST)">
-<kw name="Dado que chame a API para postar arquivo e conteudo" library="keyword_api">
+<robot generated="20180420 16:34:00.669" generator="Robot 3.0.3 (Python 2.7.12 on linux2)">
+<suite source="/home/CIT/bcromo/github/Post_get_tornado/Robot/features/api-refactor.robot" id="s1" name="Api-Refactor">
+<test id="s1-t1" name="1. Cenario: Enviar nome do arquivo e texto para API (POST)">
+<kw name="Dado que chame a API para postar arquivo e conteudo valido" library="keyword-api-refactor">
 <kw name="Create Session" library="RequestsLibrary">
 <doc>Create Session: create a HTTP session to a server</doc>
 <arguments>
@@ -11,70 +10,70 @@
 <arg>${HOST}</arg>
 <arg>disable_warnings=1</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.467" level="INFO">Creating Session using : alias=Enviar_POST, url=http://localhost:8888/content, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20180420 14:19:27.468" starttime="20180420 14:19:27.467"></status>
+<msg timestamp="20180420 16:34:00.829" level="INFO">Creating Session using : alias=Enviar_POST, url=http://localhost:8888/content, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20180420 16:34:00.829" starttime="20180420 16:34:00.828"></status>
 </kw>
-<status status="PASS" endtime="20180420 14:19:27.468" starttime="20180420 14:19:27.467"></status>
+<status status="PASS" endtime="20180420 16:34:00.829" starttime="20180420 16:34:00.828"></status>
 </kw>
-<kw name="Qaundo informar nome do aquivo &quot;ListaContato&quot; e conteudo &quot;Bruno 19 9999-9999&quot;" library="keyword_api">
+<kw name="Quando informar nome do arquivo &quot;listaContato&quot; e conteudo &quot;Manuel (19)9-9999-9999&quot;" library="keyword-api-refactor">
 <kw name="Post Request" library="RequestsLibrary">
 <doc>Send a POST request on the session object found using the</doc>
 <arguments>
 <arg>Enviar_POST</arg>
-<arg>${NOME_ARQUIVO_EXISTENTE}</arg>
-<arg>data=${CONTEUDO_VALIDO}</arg>
+<arg>${arquivo}</arg>
+<arg>data=${conteudo}</arg>
 </arguments>
 <assign>
 <var>${RETORNO_POST}</var>
 </assign>
-<msg timestamp="20180420 14:19:27.473" level="INFO">Post Request using : alias=Enviar_POST, uri=ListaContato, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
-<msg timestamp="20180420 14:19:27.473" level="INFO">${RETORNO_POST} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20180420 14:19:27.473" starttime="20180420 14:19:27.468"></status>
+<msg timestamp="20180420 16:34:00.834" level="INFO">Post Request using : alias=Enviar_POST, uri=listaContato, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20180420 16:34:00.835" level="INFO">${RETORNO_POST} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20180420 16:34:00.835" starttime="20180420 16:34:00.830"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>Resposta: ${RETORNO_POST.text}</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.474" level="INFO">Resposta: Arquivo criado com suscesso</msg>
-<status status="PASS" endtime="20180420 14:19:27.474" starttime="20180420 14:19:27.474"></status>
+<msg timestamp="20180420 16:34:00.835" level="INFO">Resposta: Arquivo criado com suscesso</msg>
+<status status="PASS" endtime="20180420 16:34:00.835" starttime="20180420 16:34:00.835"></status>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
 <arguments>
 <arg>${RETORNO_POST}</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.474" level="INFO">${RETORNO_POST} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20180420 14:19:27.474" starttime="20180420 14:19:27.474"></status>
+<msg timestamp="20180420 16:34:00.836" level="INFO">${RETORNO_POST} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20180420 16:34:00.836" starttime="20180420 16:34:00.835"></status>
 </kw>
-<status status="PASS" endtime="20180420 14:19:27.475" starttime="20180420 14:19:27.468"></status>
+<status status="PASS" endtime="20180420 16:34:00.836" starttime="20180420 16:34:00.830"></status>
 </kw>
-<kw name="Entao é apresentado mensagem &quot;Arquivo criado com suscesso&quot;" library="keyword_api">
+<kw name="Entao é apresentado mensagem &quot;Arquivo criado com suscesso&quot;" library="keyword-api-refactor">
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${RETORNO_POST.text}</arg>
-<arg>${MENSAGEM_NOME_CONTEUDO_VALIDO}</arg>
+<arg>${mensagem}</arg>
 </arguments>
-<status status="PASS" endtime="20180420 14:19:27.475" starttime="20180420 14:19:27.475"></status>
+<status status="PASS" endtime="20180420 16:34:00.837" starttime="20180420 16:34:00.836"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>Status Code Retornado: ${RETORNO_POST.text} -- Status Code Esperado: ${MENSAGEM_NOME_CONTEUDO_VALIDO}</arg>
+<arg>Status Code Retornado: ${RETORNO_POST.text} -- Status Code Esperado: ${mensagem}</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.476" level="INFO">Status Code Retornado: Arquivo criado com suscesso -- Status Code Esperado: Arquivo criado com suscesso</msg>
-<status status="PASS" endtime="20180420 14:19:27.476" starttime="20180420 14:19:27.476"></status>
+<msg timestamp="20180420 16:34:00.837" level="INFO">Status Code Retornado: Arquivo criado com suscesso -- Status Code Esperado: Arquivo criado com suscesso</msg>
+<status status="PASS" endtime="20180420 16:34:00.837" starttime="20180420 16:34:00.837"></status>
 </kw>
-<status status="PASS" endtime="20180420 14:19:27.476" starttime="20180420 14:19:27.475"></status>
+<status status="PASS" endtime="20180420 16:34:00.837" starttime="20180420 16:34:00.836"></status>
 </kw>
 <tags>
 <tag>post_aquivo_conteudo_valido</tag>
 </tags>
-<status status="PASS" endtime="20180420 14:19:27.476" critical="yes" starttime="20180420 14:19:27.466"></status>
+<status status="PASS" endtime="20180420 16:34:00.838" critical="yes" starttime="20180420 16:34:00.827"></status>
 </test>
-<test id="s1-s1-t2" name="2. Cenario: Enviar nome do arquivo (ListaContato) e texto em branco para API (POST)">
-<kw name="Dado que chame a API para postar conteudo em branco" library="keyword_api">
+<test id="s1-t2" name="2. Cenario: Enviar nome do arquivo e texto em branco para API (POST)">
+<kw name="Dado que chame a API para postar arquivo e conteudo em branco" library="keyword-api-refactor">
 <kw name="Create Session" library="RequestsLibrary">
 <doc>Create Session: create a HTTP session to a server</doc>
 <arguments>
@@ -82,69 +81,89 @@
 <arg>${HOST}</arg>
 <arg>disable_warnings=1</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.478" level="INFO">Creating Session using : alias=Enviar_POST, url=http://localhost:8888/content, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20180420 14:19:27.479" starttime="20180420 14:19:27.478"></status>
+<msg timestamp="20180420 16:34:00.840" level="INFO">Creating Session using : alias=Enviar_POST, url=http://localhost:8888/content, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20180420 16:34:00.840" starttime="20180420 16:34:00.839"></status>
 </kw>
-<status status="PASS" endtime="20180420 14:19:27.479" starttime="20180420 14:19:27.478"></status>
+<status status="PASS" endtime="20180420 16:34:00.840" starttime="20180420 16:34:00.839"></status>
 </kw>
-<kw name="Qaundo informar nome do aquivo &quot;ListaContato&quot; e conteuno &quot;&quot;" library="keyword_api">
+<kw name="Quando informar nome do arquivo &quot;Receita&quot; e conteudo &quot;&quot; em branco" library="keyword-api-refactor">
 <kw name="Post Request" library="RequestsLibrary">
 <doc>Send a POST request on the session object found using the</doc>
 <arguments>
 <arg>Enviar_POST</arg>
-<arg>${NOME_ARQUIVO_EXISTENTE}</arg>
+<arg>${arquivo}</arg>
 </arguments>
 <assign>
 <var>${RETORNO_POST}</var>
 </assign>
-<msg timestamp="20180420 14:19:27.482" level="INFO">Post Request using : alias=Enviar_POST, uri=ListaContato, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
-<msg timestamp="20180420 14:19:27.482" level="INFO">${RETORNO_POST} = &lt;Response [400]&gt;</msg>
-<status status="PASS" endtime="20180420 14:19:27.482" starttime="20180420 14:19:27.479"></status>
+<msg timestamp="20180420 16:34:00.845" level="INFO">Post Request using : alias=Enviar_POST, uri=Receita, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20180420 16:34:00.846" level="INFO">${RETORNO_POST} = &lt;Response [400]&gt;</msg>
+<status status="PASS" endtime="20180420 16:34:00.846" starttime="20180420 16:34:00.841"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>Resposta: ${RETORNO_POST.text}</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.483" level="INFO">Resposta: Sem valores no post da mensagem</msg>
-<status status="PASS" endtime="20180420 14:19:27.483" starttime="20180420 14:19:27.482"></status>
+<msg timestamp="20180420 16:34:00.846" level="INFO">Resposta: Sem valores no post da mensagem</msg>
+<status status="PASS" endtime="20180420 16:34:00.846" starttime="20180420 16:34:00.846"></status>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
 <arguments>
 <arg>${RETORNO_POST}</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.483" level="INFO">${RETORNO_POST} = &lt;Response [400]&gt;</msg>
-<status status="PASS" endtime="20180420 14:19:27.483" starttime="20180420 14:19:27.483"></status>
+<msg timestamp="20180420 16:34:00.847" level="INFO">${RETORNO_POST} = &lt;Response [400]&gt;</msg>
+<status status="PASS" endtime="20180420 16:34:00.847" starttime="20180420 16:34:00.846"></status>
 </kw>
-<status status="PASS" endtime="20180420 14:19:27.483" starttime="20180420 14:19:27.479"></status>
+<status status="PASS" endtime="20180420 16:34:00.847" starttime="20180420 16:34:00.840"></status>
 </kw>
-<kw name="Entao é apresentado mensagem &quot;Sem valores no post da mensagem&quot;" library="keyword_api">
+<kw name="Entao é apresentado mensagem &quot;Sem valores no post da mensagem&quot; para conteudo em branco" library="keyword-api-refactor">
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${RETORNO_POST.text}</arg>
-<arg>${MENSAGEM_NOME_CONTEUDO_INVALIDO}</arg>
+<arg>${mensagem}</arg>
 </arguments>
-<status status="PASS" endtime="20180420 14:19:27.484" starttime="20180420 14:19:27.484"></status>
+<status status="PASS" endtime="20180420 16:34:00.848" starttime="20180420 16:34:00.847"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>Retornado: ${RETORNO_POST.text} -- Esperado: ${MENSAGEM_NOME_CONTEUDO_INVALIDO}</arg>
+<arg>Retornado: ${RETORNO_POST.text} -- Esperado: ${mensagem}</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.485" level="INFO">Retornado: Sem valores no post da mensagem -- Esperado: Sem valores no post da mensagem</msg>
-<status status="PASS" endtime="20180420 14:19:27.485" starttime="20180420 14:19:27.484"></status>
+<msg timestamp="20180420 16:34:00.848" level="INFO">Retornado: Sem valores no post da mensagem -- Esperado: Sem valores no post da mensagem</msg>
+<status status="PASS" endtime="20180420 16:34:00.848" starttime="20180420 16:34:00.848"></status>
 </kw>
-<status status="PASS" endtime="20180420 14:19:27.485" starttime="20180420 14:19:27.483"></status>
+<status status="PASS" endtime="20180420 16:34:00.848" starttime="20180420 16:34:00.847"></status>
 </kw>
 <tags>
 <tag>post_arquivo_valido_conteudo_em_branco</tag>
 </tags>
-<status status="PASS" endtime="20180420 14:19:27.485" critical="yes" starttime="20180420 14:19:27.477"></status>
+<status status="PASS" endtime="20180420 16:34:00.849" critical="yes" starttime="20180420 16:34:00.838"></status>
 </test>
-<test id="s1-s1-t3" name="3. Cenario: Ler arquivo (ListaContato) com o conteudo (Bruno 19 9999-9999) (GET)">
-<kw name="Dado que chame a API para ler arquivo existente" library="keyword_api">
+<test id="s1-t3" name="3. Cenario: Ler arquivo com o conteudo (GET)">
+<kw name="Dado que chame a API para ler arquivo &quot;Saldo&quot; com conteudo &quot;Data 10/10/2018 - Saldo do Dia: R$ 31.525,00&quot;" library="keyword-api-refactor">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>Enviar_POST</arg>
+<arg>${HOST}</arg>
+<arg>disable_warnings=1</arg>
+</arguments>
+<msg timestamp="20180420 16:34:00.850" level="INFO">Creating Session using : alias=Enviar_POST, url=http://localhost:8888/content, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20180420 16:34:00.850" starttime="20180420 16:34:00.850"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>Enviar_POST</arg>
+<arg>${arquivo}</arg>
+<arg>data=${conteudo}</arg>
+</arguments>
+<msg timestamp="20180420 16:34:00.854" level="INFO">Post Request using : alias=Enviar_POST, uri=Saldo, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<status status="PASS" endtime="20180420 16:34:00.854" starttime="20180420 16:34:00.851"></status>
+</kw>
 <kw name="Create Session" library="RequestsLibrary">
 <doc>Create Session: create a HTTP session to a server</doc>
 <arguments>
@@ -152,69 +171,69 @@
 <arg>${HOST}</arg>
 <arg>disable_warnings=1</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.486" level="INFO">Creating Session using : alias=Receber_GET, url=http://localhost:8888/content, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20180420 14:19:27.487" starttime="20180420 14:19:27.486"></status>
+<msg timestamp="20180420 16:34:00.854" level="INFO">Creating Session using : alias=Receber_GET, url=http://localhost:8888/content, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20180420 16:34:00.855" starttime="20180420 16:34:00.854"></status>
 </kw>
-<status status="PASS" endtime="20180420 14:19:27.487" starttime="20180420 14:19:27.486"></status>
+<status status="PASS" endtime="20180420 16:34:00.855" starttime="20180420 16:34:00.849"></status>
 </kw>
-<kw name="Qaundo informar nome do aquivo &quot;ListaContato&quot;" library="keyword_api">
+<kw name="Quando informar nome do aquivo &quot;Saldo&quot;" library="keyword-api-refactor">
 <kw name="Get Request" library="RequestsLibrary">
 <doc>Send a GET request on the session object found using the</doc>
 <arguments>
 <arg>Receber_GET</arg>
-<arg>${NOME_ARQUIVO_EXISTENTE}</arg>
+<arg>${arquivo}</arg>
 </arguments>
 <assign>
 <var>${RETORNO_GET}</var>
 </assign>
-<msg timestamp="20180420 14:19:27.490" level="INFO">Get Request using : alias=Receber_GET, uri=ListaContato, headers=None json=None</msg>
-<msg timestamp="20180420 14:19:27.490" level="INFO">${RETORNO_GET} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20180420 14:19:27.490" starttime="20180420 14:19:27.487"></status>
+<msg timestamp="20180420 16:34:00.859" level="INFO">Get Request using : alias=Receber_GET, uri=Saldo, headers=None json=None</msg>
+<msg timestamp="20180420 16:34:00.860" level="INFO">${RETORNO_GET} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20180420 16:34:00.860" starttime="20180420 16:34:00.856"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>Resposta: ${RETORNO_GET.text}</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.491" level="INFO">Resposta: Bruno (19)9-99999999</msg>
-<status status="PASS" endtime="20180420 14:19:27.491" starttime="20180420 14:19:27.490"></status>
+<msg timestamp="20180420 16:34:00.862" level="INFO">Resposta: Data 10/10/2018 - Saldo do Dia: R$ 31.525,00</msg>
+<status status="PASS" endtime="20180420 16:34:00.862" starttime="20180420 16:34:00.860"></status>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
 <arguments>
 <arg>${RETORNO_GET}</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.491" level="INFO">${RETORNO_GET} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20180420 14:19:27.491" starttime="20180420 14:19:27.491"></status>
+<msg timestamp="20180420 16:34:00.863" level="INFO">${RETORNO_GET} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20180420 16:34:00.863" starttime="20180420 16:34:00.863"></status>
 </kw>
-<status status="PASS" endtime="20180420 14:19:27.491" starttime="20180420 14:19:27.487"></status>
+<status status="PASS" endtime="20180420 16:34:00.863" starttime="20180420 16:34:00.855"></status>
 </kw>
-<kw name="Entao é apresentado mensagem com o conteudo &quot;Bruno 19 9999-9999&quot;" library="keyword_api">
+<kw name="Entao é apresentado mensagem com o conteudo &quot;Data 10/10/2018 - Saldo do Dia: R$ 31.525,00&quot;" library="keyword-api-refactor">
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${RETORNO_GET.text}</arg>
-<arg>${MENSAGEM_CONTEUDO_VALIDO}</arg>
+<arg>${conteudo}</arg>
 </arguments>
-<status status="PASS" endtime="20180420 14:19:27.492" starttime="20180420 14:19:27.492"></status>
+<status status="PASS" endtime="20180420 16:34:00.864" starttime="20180420 16:34:00.864"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>Retornado: ${RETORNO_GET.text} -- Esperado: ${MENSAGEM_CONTEUDO_VALIDO}</arg>
+<arg>Retornado: ${RETORNO_GET.text} -- Esperado: ${conteudo}</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.494" level="INFO">Retornado: Bruno (19)9-99999999 -- Esperado: Bruno (19)9-99999999</msg>
-<status status="PASS" endtime="20180420 14:19:27.494" starttime="20180420 14:19:27.492"></status>
+<msg timestamp="20180420 16:34:00.865" level="INFO">Retornado: Data 10/10/2018 - Saldo do Dia: R$ 31.525,00 -- Esperado: Data 10/10/2018 - Saldo do Dia: R$ 31.525,00</msg>
+<status status="PASS" endtime="20180420 16:34:00.865" starttime="20180420 16:34:00.865"></status>
 </kw>
-<status status="PASS" endtime="20180420 14:19:27.494" starttime="20180420 14:19:27.491"></status>
+<status status="PASS" endtime="20180420 16:34:00.865" starttime="20180420 16:34:00.864"></status>
 </kw>
 <tags>
 <tag>get_ler_arquivo_existente</tag>
 </tags>
-<status status="PASS" endtime="20180420 14:19:27.495" critical="yes" starttime="20180420 14:19:27.485"></status>
+<status status="PASS" endtime="20180420 16:34:00.865" critical="yes" starttime="20180420 16:34:00.849"></status>
 </test>
-<test id="s1-s1-t4" name="4. Cenario: Ler arquivo inexistente (GET)">
-<kw name="Dado que chame a API para ler aquivo inexistente" library="keyword_api">
+<test id="s1-t4" name="4. Cenario: Ler arquivo inexistente (GET)">
+<kw name="Dado que chame a API para ler aquivo inexistente" library="keyword-api-refactor">
 <kw name="Create Session" library="RequestsLibrary">
 <doc>Create Session: create a HTTP session to a server</doc>
 <arguments>
@@ -222,71 +241,69 @@
 <arg>${HOST}</arg>
 <arg>disable_warnings=1</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.496" level="INFO">Creating Session using : alias=Receber_GET, url=http://localhost:8888/content, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20180420 14:19:27.497" starttime="20180420 14:19:27.496"></status>
+<msg timestamp="20180420 16:34:00.868" level="INFO">Creating Session using : alias=Receber_GET, url=http://localhost:8888/content, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20180420 16:34:00.868" starttime="20180420 16:34:00.867"></status>
 </kw>
-<status status="PASS" endtime="20180420 14:19:27.497" starttime="20180420 14:19:27.496"></status>
+<status status="PASS" endtime="20180420 16:34:00.868" starttime="20180420 16:34:00.866"></status>
 </kw>
-<kw name="Qaundo informar nome do aquivo &quot;ContatoLista&quot;" library="keyword_api">
+<kw name="Quando informar nome do aquivo &quot;Notas&quot; que nao existe" library="keyword-api-refactor">
 <kw name="Get Request" library="RequestsLibrary">
 <doc>Send a GET request on the session object found using the</doc>
 <arguments>
 <arg>Receber_GET</arg>
-<arg>${NOME_ARQUIVO_INEXISTENTE}</arg>
+<arg>${arquivo}</arg>
 </arguments>
 <assign>
 <var>${RETORNO_GET}</var>
 </assign>
-<msg timestamp="20180420 14:19:27.501" level="INFO">Get Request using : alias=Receber_GET, uri=ContatoLista, headers=None json=None</msg>
-<msg timestamp="20180420 14:19:27.501" level="INFO">${RETORNO_GET} = &lt;Response [404]&gt;</msg>
-<status status="PASS" endtime="20180420 14:19:27.501" starttime="20180420 14:19:27.498"></status>
+<msg timestamp="20180420 16:34:00.871" level="INFO">Get Request using : alias=Receber_GET, uri=Notas, headers=None json=None</msg>
+<msg timestamp="20180420 16:34:00.871" level="INFO">${RETORNO_GET} = &lt;Response [404]&gt;</msg>
+<status status="PASS" endtime="20180420 16:34:00.872" starttime="20180420 16:34:00.869"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>Resposta: ${RETORNO_GET.text}</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.502" level="INFO">Resposta: Arquivo não existe</msg>
-<status status="PASS" endtime="20180420 14:19:27.502" starttime="20180420 14:19:27.501"></status>
+<msg timestamp="20180420 16:34:00.872" level="INFO">Resposta: Arquivo não existe</msg>
+<status status="PASS" endtime="20180420 16:34:00.872" starttime="20180420 16:34:00.872"></status>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
 <arguments>
 <arg>${RETORNO_GET}</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.502" level="INFO">${RETORNO_GET} = &lt;Response [404]&gt;</msg>
-<status status="PASS" endtime="20180420 14:19:27.502" starttime="20180420 14:19:27.502"></status>
+<msg timestamp="20180420 16:34:00.873" level="INFO">${RETORNO_GET} = &lt;Response [404]&gt;</msg>
+<status status="PASS" endtime="20180420 16:34:00.873" starttime="20180420 16:34:00.872"></status>
 </kw>
-<status status="PASS" endtime="20180420 14:19:27.502" starttime="20180420 14:19:27.497"></status>
+<status status="PASS" endtime="20180420 16:34:00.873" starttime="20180420 16:34:00.869"></status>
 </kw>
-<kw name="Entao é apresentado mensagem &quot;Arquivo não existe&quot;" library="keyword_api">
+<kw name="Entao é apresentado mensagem &quot;Arquivo não existe&quot; dizendo que o arquivo nao existe" library="keyword-api-refactor">
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
 <arg>${RETORNO_GET.text}</arg>
-<arg>${MENSAGEM_ARQUIVO_INEXISTENTE}</arg>
+<arg>${mensagem}</arg>
 </arguments>
-<status status="PASS" endtime="20180420 14:19:27.503" starttime="20180420 14:19:27.503"></status>
+<status status="PASS" endtime="20180420 16:34:00.874" starttime="20180420 16:34:00.873"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>Retornado: ${RETORNO_GET.text} -- Esperado: ${MENSAGEM_ARQUIVO_INEXISTENTE}</arg>
+<arg>Retornado: ${RETORNO_GET.text} -- Esperado: ${mensagem}</arg>
 </arguments>
-<msg timestamp="20180420 14:19:27.504" level="INFO">Retornado: Arquivo não existe -- Esperado: Arquivo não existe</msg>
-<status status="PASS" endtime="20180420 14:19:27.504" starttime="20180420 14:19:27.503"></status>
+<msg timestamp="20180420 16:34:00.874" level="INFO">Retornado: Arquivo não existe -- Esperado: Arquivo não existe</msg>
+<status status="PASS" endtime="20180420 16:34:00.874" starttime="20180420 16:34:00.874"></status>
 </kw>
-<status status="PASS" endtime="20180420 14:19:27.504" starttime="20180420 14:19:27.502"></status>
+<status status="PASS" endtime="20180420 16:34:00.874" starttime="20180420 16:34:00.873"></status>
 </kw>
 <tags>
 <tag>get_ler_arquivo_inexistente</tag>
 </tags>
-<status status="PASS" endtime="20180420 14:19:27.504" critical="yes" starttime="20180420 14:19:27.495"></status>
+<status status="PASS" endtime="20180420 16:34:00.874" critical="yes" starttime="20180420 16:34:00.866"></status>
 </test>
 <doc>Acesso a API python com tornado</doc>
-<status status="PASS" endtime="20180420 14:19:27.504" starttime="20180420 14:19:27.326"></status>
-</suite>
-<status status="PASS" endtime="20180420 14:19:27.506" starttime="20180420 14:19:27.309"></status>
+<status status="PASS" endtime="20180420 16:34:00.875" starttime="20180420 16:34:00.670"></status>
 </suite>
 <statistics>
 <total>
@@ -300,8 +317,7 @@
 <stat fail="0" pass="1">post_arquivo_valido_conteudo_em_branco</stat>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Features" pass="4">Features</stat>
-<stat fail="0" id="s1-s1" name="Api" pass="4">Features.Api</stat>
+<stat fail="0" id="s1" name="Api-Refactor" pass="4">Api-Refactor</stat>
 </suite>
 </statistics>
 <errors>
